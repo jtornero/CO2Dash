@@ -29,3 +29,5 @@ derivada será responsabilidad del usuario del software.
 Clona este repositorio, ejecuta crea_flujos.py e importa el fichero _configuracion_sistema.json_ como flujo en node-red
 
 Un sistema de ejemplo está en el arhivo sensor.conf
+
+Asimismo, en las carpetas se incluyen plantillas para un flujo de simulación de datos y un flujo para la conexion de un sensor CM1106 mediante conexión directa UART a través de un conversor USB-TTL
