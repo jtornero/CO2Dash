@@ -1,0 +1,19 @@
+[
+    {
+        "id": "850f47c1.6e5f4",
+        "type": "function",
+        "z": "7286461.3600cb8",
+        "name": "",
+        "func": "\n\n\nfunction extractValue(arr, prop) {\n\n    let extractedValue = [];\n\n    for (let i=0; i < arr.length ; ++i) {\n\n        // extract value from property\n        extractedValue.push(arr[i][prop]);\n    }\n    return extractedValue;\n}\n\nlast3=msg.payload[0].data[0].slice(0,1)\nlast10=msg.payload[0].data[0].slice(0,10)\n\nlast3x=extractValue(last3,'x');\nlast3y=extractValue(last3,'y');\nlast10x=extractValue(last10,'x');\nlast10y=extractValue(last10,'y');\n\nmean3y=last3y.reduce(function(a, b){return a + b;}, 0);\nmean10y=last10y.reduce(function(a, b){return a + b;}, 0)/10.0;\n\ndiff=mean10y-mean3y\n\nvar newMsg = {diff: slope, mean3y: mean3y, mean10y: mean10y}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1170,
+        "y": 220,
+        "wires": [
+            [
+                "5775a16a.a6af5",
+                "16a47d86.5d705a"
+            ]
+        ]
+    }
+]

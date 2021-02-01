@@ -1,0 +1,101 @@
+[
+    {
+        "id": "01",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "02",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "8",
+        "bin": "bin",
+        "out": "count",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "03",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.131",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "04",
+        "type": "inject",
+        "z": "01",
+        "name": "CM1106_Read",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[17,1,1,237]",
+        "payloadType": "bin",
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "05"
+            ]
+        ]
+    },
+    {
+        "id": "05",
+        "type": "serial request",
+        "z": "01",
+        "name": "",
+        "serial": "02",
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "08"
+            ]
+        ]
+    },
+    {
+        "id": "08",
+        "type": "mqtt out",
+        "z": "01",
+        "name": "",
+        "topic": "CLASE1",
+        "qos": "",
+        "retain": "",
+        "broker": "03",
+        "x": 720,
+        "y": 180,
+        "wires": []
+    }
+]
